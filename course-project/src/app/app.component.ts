@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'course-project';
+  featureSelected!: string;
+
+  public onNavigate(event: string) {
+    console.log('event', event);
+    this.featureSelected = event;
+  }
 }
