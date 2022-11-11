@@ -7,10 +7,10 @@ import { Component, Input } from '@angular/core';
 })
 export class AppComponent {
   title = 'course-project';
-  featureSelected: string = 'recipes';
+  loadedFeature: string ='recipe';
 
   public onNavigate(event: string) {
     console.log('event', event);
-    this.featureSelected = event;
+    this.loadedFeature = event;
   }
 }
