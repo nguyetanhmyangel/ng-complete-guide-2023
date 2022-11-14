@@ -1,35 +1,43 @@
-<div class="row">
-  <div class="col-xs-12">
-    <img src="" alt="" class="img-responsive" [src]="recipe.imagePath"
-    alt="{{ recipe.name }}"
-    class="img-responsive"
-    style="max-height: 300px">
+<div class="row p-2" style="border: 1px solid #ddd;">
+  <p>Detail:</p>
+  <div class="row">
+    <div class="col-xs-12">
+      <img src="" alt="" class="img-responsive" [src]="recipe.imagePath" alt="{{ recipe.name }}" class="img-responsive"
+        style="max-height: 300px">
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    <h1>{{ recipe.name }}</h1>
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>{{ recipe.name }}</h1>
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    <div class="dropdown" >
-      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1"
-      data-bs-toggle="dropdown" data-bs-auto-close="true" [attr.aria-expanded]="r.isOpen"
-      appDropdown #r="appDropDown">
-        Dropdown button
-      </button>
-      <ul class="dropdown-menu show" aria-labelledby="dropdownMenuButton1" [ngClass]="{'show':r.isOpen}">
-        <li><a class="dropdown-item" href="#">To Shopping List</a></li>
-        <li><a class="dropdown-item" href="#">Edit Recipe</a></li>
-        <li><a class="dropdown-item" href="#">Delete Recipe</a></li>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+          data-bs-auto-close="true" [attr.aria-expanded]="r.isOpen" appDropdown #r="appDropDown">
+          Dropdown button
+        </button>
+        <ul class="dropdown-menu show" aria-labelledby="dropdownMenuButton1" [ngClass]="{'show':r.isOpen}">
+          <li><a class="dropdown-item" (click)="onAddToShoppingList()"  href="#">To Shopping List</a></li>
+          <li><a class="dropdown-item" href="#">Edit Recipe</a></li>
+          <li><a class="dropdown-item" href="#">Delete Recipe</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">{{ recipe.description }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let ingredient of recipe.ingredients">
+          {{ ingredient.name }} - {{ ingredient.amount }}
+        </li>
       </ul>
     </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">{{ recipe.description }}</div>
-</div>
-<div class="row">
-  <div class="col-xs-12">Ingredients</div>
 </div>
